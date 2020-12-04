@@ -1,70 +1,72 @@
-const clock = document.getElementById('clock')
+class WordClock {
+  constructor(node) {
+    this.el = node
 
-const setDate = () => {
-  now = new Date()
-  updateHour(now)
-  updateMinutes(now)
-  updateModifier(now)
-}
+    this.setDate()
 
-const updateHour = now => {
-  h = now.getHours()
+    setInterval(() => {
+      this.setDate()
+    }, 60000)
+  }
 
-  // 24h to am/pm
-  h = h > 12 ? h - 12 : h
+  setDate = () => {
+    const now = new Date()
+    this.updateHour(now)
+    this.updateMinutes(now)
+    this.updateModifier(now)
+  }
 
-  // Midnight => 12
-  h = h === 0 ? 12 : h
+  updateHour = now => {
+    let h = now.getHours()
 
-  clock.dataset.activeHour = ( now.getMinutes() <=35 ) ? h : h + 1
-}
+    // 24h to am/pm
+    h = h > 12 ? h - 12 : h
 
-const updateMinutes = now => {
-  m = now.getMinutes()
+    // Midnight => 12
+    h = h === 0 ? 12 : h
 
-  switch (true) {
-    case m > 25 && m <= 35:
-      clock.dataset.activeMinutes = 'half'
-      break
-    case m > 17 && m <= 43:
-      clock.dataset.activeMinutes = 'twenty'
-      break
-    case m > 12 && m <= 48:
-      clock.dataset.activeMinutes = 'quarter'
-      break
-    case m > 7 && m <= 53:
-      clock.dataset.activeMinutes = 'ten'
-      break
-    case m > 2 && m <= 58:
-      clock.dataset.activeMinutes = 'five'
-      break
-    default:
-      clock.dataset.activeMinutes = false
+    this.el.dataset.activeHour = ( now.getMinutes() <=35 ) ? h : h + 1
+  }
+
+  updateMinutes = now => {
+    const m = now.getMinutes()
+
+    switch (true) {
+      case m > 25 && m <= 35:
+        this.el.dataset.activeMinutes = 'half'
+        break
+      case m > 17 && m <= 43:
+        this.el.dataset.activeMinutes = 'twenty'
+        break
+      case m > 12 && m <= 48:
+        this.el.dataset.activeMinutes = 'quarter'
+        break
+      case m > 7 && m <= 53:
+        this.el.dataset.activeMinutes = 'ten'
+        break
+      case m > 2 && m <= 58:
+        this.el.dataset.activeMinutes = 'five'
+        break
+      default:
+        this.el.dataset.activeMinutes = false
+    }
+  }
+
+  updateModifier = now => {
+    const m = now.getMinutes()
+
+    let activeModifier = [(m <= 35) ? 'past' : 'to']
+
+    if ( this.el.dataset.activeMinutes && this.el.dataset.activeMinutes !== 'half' && this.el.dataset.activeMinutes !== 'quarter' ) {
+      activeModifier.push('minutes')
+    }
+
+    if ( ! this.el.dataset.activeMinutes ) {
+      activeModifier = ['oclock']
+    }
+
+    this.el.dataset.activeModifier = activeModifier.join(' ')
   }
 }
 
-const updateModifier = now => {
-  m = now.getMinutes()
-
-  let activeModifier = [(m <= 35) ? 'past' : 'to']
-
-  if ( clock.dataset.activeMinutes && clock.dataset.activeMinutes !== 'half' && clock.dataset.activeMinutes !== 'quarter' ) {
-    activeModifier.push('minutes')
-  }
-
-  if ( ! clock.dataset.activeMinutes ) {
-    activeModifier = ['oclock']
-  }
-
-  clock.dataset.activeModifier = activeModifier.join(' ')
-}
-
-const init = () => {
-  setDate()
-
-  setInterval(() => {
-    setDate()
-  }, 60000)
-}
-
-window.onload = init
+const clock = new WordClock(document.getElementById('clock'))
