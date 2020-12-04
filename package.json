@@ -1,0 +1,25 @@
+{
+  "name": "clock",
+  "version": "1.0.0",
+  "description": "It's a nice lil clock that tells the time with words, not a dial and hands.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdsteinbach/clock.git"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "js",
+    "clock"
+  ],
+  "author": "James Steinbach",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jdsteinbach/clock/issues"
+  },
+  "homepage": "https://github.com/jdsteinbach/clock#readme"
+}

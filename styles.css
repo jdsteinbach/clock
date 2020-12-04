@@ -1,0 +1,136 @@
+html {
+  background-color: #757575;
+}
+
+body {
+  height: 100vh;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.clock {
+  width: 98vmin;
+  max-height: 98vmin;
+  margin: 1vmin auto;
+  padding: 3vmin 1vmin;
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  -webkit-box-flex: 1;
+          flex: 1 1 100%;
+  box-sizing: border-box;
+  border: 2vmin solid #fafafa;
+  box-shadow: 0 .125vmin 1vmin #212121, inset 0 0 .5vmin #000;
+  font-family: Raleway, monospace;
+  font-size: 7.25vmin;
+  line-height: 1.25;
+  font-weight: 800;
+  letter-spacing: 0.0625em;
+  text-transform: uppercase;
+  text-shadow: 0 0 0.125em #000, 0 0 0.25em rgba(245, 245, 245, 0.5);
+  color: #f5f5f5;
+  background-color: #212121;
+}
+
+.clock__span {
+  display: inline-block;
+  padding: 0 3vmin .125em;
+  opacity: .05;
+  -webkit-transition: opacity 1.5s;
+  transition: opacity 1.5s;
+}
+.clock__span.is-lit {
+  opacity: 1;
+}
+
+[data-active-hour~="1"] [data-hour="1"] {
+  opacity: 1 !important;
+}
+
+[data-active-hour~="2"] [data-hour="2"] {
+  opacity: 1 !important;
+}
+
+[data-active-hour~="3"] [data-hour="3"] {
+  opacity: 1 !important;
+}
+
+[data-active-hour~="4"] [data-hour="4"] {
+  opacity: 1 !important;
+}
+
+[data-active-hour~="5"] [data-hour="5"] {
+  opacity: 1 !important;
+}
+
+[data-active-hour~="6"] [data-hour="6"] {
+  opacity: 1 !important;
+}
+
+[data-active-hour~="7"] [data-hour="7"] {
+  opacity: 1 !important;
+}
+
+[data-active-hour~="8"] [data-hour="8"] {
+  opacity: 1 !important;
+}
+
+[data-active-hour~="9"] [data-hour="9"] {
+  opacity: 1 !important;
+}
+
+[data-active-hour~="10"] [data-hour="10"] {
+  opacity: 1 !important;
+}
+
+[data-active-hour~="11"] [data-hour="11"] {
+  opacity: 1 !important;
+}
+
+[data-active-hour~="12"] [data-hour="12"] {
+  opacity: 1 !important;
+}
+
+[data-active-minutes~="five"] [data-minutes="five"] {
+  opacity: 1 !important;
+}
+
+[data-active-minutes~="ten"] [data-minutes="ten"] {
+  opacity: 1 !important;
+}
+
+[data-active-minutes~="quarter"] [data-minutes="quarter"] {
+  opacity: 1 !important;
+}
+
+[data-active-minutes~="twenty"] [data-minutes="twenty"] {
+  opacity: 1 !important;
+}
+
+[data-active-minutes~="half"] [data-minutes="half"] {
+  opacity: 1 !important;
+}
+
+[data-active-modifier~="minutes"] [data-modifier="minutes"] {
+  opacity: 1 !important;
+}
+
+[data-active-modifier~="to"] [data-modifier="to"] {
+  opacity: 1 !important;
+}
+
+[data-active-modifier~="past"] [data-modifier="past"] {
+  opacity: 1 !important;
+}
+
+[data-active-modifier~="oclock"] [data-modifier="oclock"] {
+  opacity: 1 !important;
+}
