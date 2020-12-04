@@ -60,10 +60,11 @@ const updateModifier = now => {
 }
 
 const init = () => {
+  setDate()
+
   setInterval(() => {
     setDate()
-    console.log('setDate')
   }, 60000)
 }
 
-init()
+window.onload = init

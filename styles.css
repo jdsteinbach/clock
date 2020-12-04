@@ -3,6 +3,7 @@ html {
 }
 
 body {
+  margin: 0;
   height: 100vh;
   display: -webkit-box;
   display: flex;
@@ -13,7 +14,7 @@ body {
 }
 
 .clock {
-  width: 98vmin;
+  max-width: 98vmin;
   max-height: 98vmin;
   margin: 1vmin auto;
   padding: 3vmin 1vmin;
